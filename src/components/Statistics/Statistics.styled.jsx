@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
 
+export function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
 export const Statistic = styled.section`
   width: 300px;
   margin-top: 20px;
