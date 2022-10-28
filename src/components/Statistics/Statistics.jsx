@@ -14,7 +14,7 @@ import {
 export const Statistics = ({ title, data }) => {
   return (
     <Statistic>
-      <StatisticTitle>{title}</StatisticTitle>
+      {title && <StatisticTitle>{title}</StatisticTitle>}
       <StatisticList>
         {data.map(stats => (
           <StatisticItem key={stats.id} bg={getRandomHexColor()}>
@@ -29,5 +29,12 @@ export const Statistics = ({ title, data }) => {
 
 
 Statistics.propTypes = {
-data : PropTypes.array.isRequired,
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
 };
